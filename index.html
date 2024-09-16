@@ -388,40 +388,105 @@
 
        /* Estilos para adaptar el chatbot en diferentes dispositivos */
 
-#cliengo-chat {
+/*estilo para el chat bot :)*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
 
+.hidden {
+    display: none;
+}
+
+.help-btn {
     position: fixed;
-
     bottom: 20px;
-
     right: 20px;
-
-    width: 100%;
-
-    max-width: 400px; /* Ajusta el tamaño máximo del chatbot */
-
-    z-index: 1000;
-
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-
-
-/* Para pantallas de dispositivos móviles */
-
-@media (max-width: 768px) {
-
-    #cliengo-chat {
-
-        bottom: 10px;
-
-        right: 10px;
-
-        width: calc(100% - 20px); /* Asegura que el chatbot se ajuste al ancho del dispositivo móvil */
-
-    }
-
+.help-btn:hover {
+    background-color: #0056b3;
 }
 
+.chatbot-container {
+    width: 300px;
+    height: 300px; /* Ajustamos la altura */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 50%; /* Hacemos la ventana circular */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbot-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 50%; /* Ajustamos los bordes */
+    border-top-right-radius: 50%;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chatbot-input button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.chatbot-input button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message.user {
+    text-align: right;
+    color: blue;
+}
+
+.message.bot {
+    text-align: left;
+    color: green;
+}
          
 
     </style>
@@ -471,6 +536,74 @@
             <div class="galeria">
 
             <div class="producto">
+    <button id="help-btn" class="help-btn">Ayuda</button>
+
+    <div id="chatbot-container" class="chatbot-container hidden">
+        <div class="chatbot-header">
+            <h3>Chatbot - Dudas y Recomendaciones</h3>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <!-- Los mensajes se mostrarán aquí -->
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="user-input" placeholder="Escribe tu duda o recomendación...">
+            <button id="send-btn">Enviar</button>
+        </div>
+            <script>
+        document.getElementById('help-btn').addEventListener('click', function() {
+            const chatbotContainer = document.getElementById('chatbot-container');
+            
+            // Mostrar u ocultar el chatbot
+            if (chatbotContainer.classList.contains('hidden')) {
+                chatbotContainer.classList.remove('hidden');
+            } else {
+                chatbotContainer.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('send-btn').addEventListener('click', sendMessage);
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== "") {
+                addMessage('user', userInput);
+                document.getElementById('user-input').value = '';
+
+                // Simular una respuesta del bot
+                setTimeout(() => {
+                    generateBotResponse(userInput);
+                }, 1000);
+            }
+        }
+
+        function addMessage(sender, message) {
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message', sender);
+            messageContainer.textContent = message;
+
+            const chatMessages = document.getElementById('chatbot-messages');
+            chatMessages.appendChild(messageContainer);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function generateBotResponse(userInput) {
+            let botResponse = '';
+
+            // Respuestas automáticas básicas
+            if (userInput.toLowerCase().includes('precio')) {
+                botResponse = 'El precio depende del producto o servicio. ¿Te gustaría conocer más detalles?';
+            } else if (userInput.toLowerCase().includes('recomendación')) {
+                botResponse = 'Te recomiendo el pastel de chocolate trufado. ¡Es nuestro favorito!';
+            } else if (userInput.toLowerCase().includes('gracias')) {
+                botResponse = '¡De nada! Estoy aquí para ayudarte.';
+            } else {
+                botResponse = 'No estoy seguro de la respuesta. ¿Podrías reformular tu pregunta o contactar con soporte?';
+            }
+
+            addMessage('bot', botResponse);
+        }
+            </script>
+    </div>
 
                 <img src="pasteleria_BROTHERS CREPS/IMAGENES/Tres leches durazno o fresa.jpg" alt="Tres leches durazno o fresa">
 
