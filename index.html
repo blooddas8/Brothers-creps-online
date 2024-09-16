@@ -210,7 +210,27 @@
         width: calc(100% - 20px); /* Asegura que el chatbot se ajuste al ancho del dispositivo móvil */
     }
 }
-         
+           .chat-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .chat-link {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -228,7 +248,43 @@
     <section id="inicio" class="hero">
         <h1>BROTHERS CREPS</h1>
     </section>
+ <!-- Enlace para iniciar el chat -->
+    <a href="#" class="chat-link" id="start-chat">¿Necesitas asistencia? Haz clic aquí</a>
 
+    <!-- Código de instalación Cliengo -->
+    <script type="text/javascript">
+        (function () {
+            var ldk = document.createElement('script');
+            ldk.type = 'text/javascript';
+            ldk.async = true;
+            ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ldk, s);
+        })();
+
+        // Espera a que el script de Cliengo esté cargado
+        window.addEventListener('load', function() {
+            var chatLink = document.getElementById('start-chat');
+
+            chatLink.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Pregunta si el usuario necesita asistencia
+                var userResponse = confirm('¿Deseas abrir el chat de asistencia?');
+
+                if (userResponse) {
+                    // Añade una demora antes de intentar abrir el chat
+                    setTimeout(function() {
+                        if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
+                            window.Cliengo.openChat();
+                        } else {
+                            console.error('Método openChat no disponible en Cliengo.');
+                        }
+                    }, 1000); // Demora de 1 segundo
+                }
+            });
+        });
+    </script>
     <center><h1 class="anuncio">Los mejores postres hechos con amor</h1></center>
 <section id="productos" class="productos">
         <h2>Nuestros Productos</h2>
