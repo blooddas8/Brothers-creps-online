@@ -293,12 +293,17 @@
     </div>
 
     <!-- Chatbot -->
-    <div id="cliengo-chat">
-        <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
-        <button onclick="optionSelected('Precios de productos')">Precios de productos</button>
-        <button onclick="optionSelected('Hacer un pedido')">Hacer un pedido</button>
-        <button onclick="optionSelected('Ubicaciones')">Ubicaciones</button>
-    </div>
+   <!-- Chatbot -->
+<div id="cliengo-chat">
+    <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
+    <button onclick="showResponse('hola')">Hola</button>
+    <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
+    <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
+    <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
+    <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
+    <button onclick="showResponse('despedida')">Despedida</button>
+</div>
+
 
     <script>
         // Mostrar el campo de sabor del pastel solo si se elige la opción "Pastel sin leches"
