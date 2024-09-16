@@ -1,4 +1,4 @@
-8<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -248,7 +248,7 @@
     <section id="inicio" class="hero">
         <h1>BROTHERS CREPS</h1>
     </section>
-    <a href="javascript:void(0);" class="chat-link" onclick="openCliengoChat()">¿Necesitas ayuda? Haz clic aquí para abrir el chat</a>
+       <div class="chat-button" onclick="openCliengoChat()">¿Necesitas ayuda? Haz clic aquí para abrir el chat</div>
 
     <!-- Código de instalación Cliengo -->
     <script type="text/javascript">
@@ -262,20 +262,18 @@
 
             // Esperar a que el script se cargue
             ldk.onload = function() {
-                window.Cliengo = window.Cliengo || {};
-                window.Cliengo.openChat = function() {
-                    if (window.cliengo && typeof window.cliengo.openChat === 'function') {
-                        window.cliengo.openChat();
-                    } else {
-                        console.log('El chatbot de Cliengo no está disponible.');
-                    }
-                };
+                // Comprobar si el objeto Cliengo está disponible
+                if (window.cliengo && typeof window.cliengo.openChat === 'function') {
+                    console.log('Chat de Cliengo está disponible.');
+                } else {
+                    console.log('El chatbot de Cliengo no está disponible.');
+                }
             };
         })();
 
         function openCliengoChat() {
-            if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
-                window.Cliengo.openChat();
+            if (window.cliengo && typeof window.cliengo.openChat === 'function') {
+                window.cliengo.openChat();
             } else {
                 console.log('El chatbot de Cliengo no está disponible.');
             }
