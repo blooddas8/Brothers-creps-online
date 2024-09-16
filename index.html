@@ -188,83 +188,40 @@
         }
 
         /* Chatbot styles */
-         /* Estilos para el chatbot */
-        #cliengo-chat {
-            border: 1px solid #ddd;
-            padding: 10px;
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+         #cliengo-chat {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none; /* Inicialmente oculto */
-            z-index: 1000;
-            transition: all 0.3s ease;
-            max-height: 400px; /* Altura máxima para permitir desplazamiento */
-            overflow-y: auto; /* Agrega scroll si el contenido excede la altura máxima */
+            bottom: 10px;
+            right: 10px;
+            width: 300px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
         }
 
         #cliengo-chat p {
-            margin: 0;
-            padding: 5px 0;
-        }
-
-        #cliengo-chat button {
-            margin: 5px 0;
-            padding: 10px;
-            border: none;
-            background-color: #ff6b6b;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
+            margin: 0 0 10px;
             font-size: 14px;
         }
 
-        #cliengo-chat .minimize {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #ff6b6b;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        #cliengo-chat .minimize span {
-            font-size: 20px;
+        #cliengo-chat button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background: #ff6b6b;
             color: white;
-        }
-
-        #cliengo-chat .content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Estilos para el ícono del chatbot */
-        #chat-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ff6b6b;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             cursor: pointer;
-            color: white;
-            font-size: 24px;
-            text-align: center;
+            border-radius: 5px;
         }
 
-    </style>
+        #cliengo-chat button:hover {
+            background: #ff4d4d;
+        }
     </style>
 </head>
 
@@ -393,6 +350,29 @@
                 <label>¿De qué sabor desea el pan?</label>
                 <input type="text" name="savor de pan">
             </div>
+
+             <script>
+        function updateForm() {
+            const cakeType = document.getElementById('cake-type').value;
+            const cakeFlavor = document.getElementById('cake-flavor');
+            const cheeseType = document.getElementById('cheese-type');
+            const jamType = document.getElementById('jam-type');
+
+            if (cakeType === 'plain') {
+                cakeFlavor.classList.remove('hidden');
+                cheeseType.classList.add('hidden');
+                jamType.classList.remove('hidden');
+            } else if (cakeType === 'cheesecake') {
+                cheeseType.classList.remove('hidden');
+                jamType.classList.remove('hidden');
+                cakeFlavor.classList.add('hidden');
+            } else {
+                cakeFlavor.classList.add('hidden');
+                cheeseType.classList.add('hidden');
+                jamType.classList.add('hidden');
+            }
+        }
+    </script>
             
             <label>¿Qué día es la entrega?:</label>
             <input type="date" name="2" required>
@@ -422,7 +402,7 @@
     </div>
 
     <!-- Chatbot -->
-<div id="cliengo-chat">
+ <div id="cliengo-chat">
         <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
         <button onclick="showResponse('hola')">Hola</button>
         <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
@@ -448,7 +428,7 @@
             const chatContainer = document.getElementById('cliengo-chat');
             let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
 
-            // Borra los mensajes existentes
+            // Borra el mensaje previo
             chatContainer.innerHTML = '';
 
             // Añade el nuevo mensaje
