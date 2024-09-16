@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BROTHERS CREPS</title>
+    <link rel="stylesheet" href="../estilo css/style.css">
+    <style>
+        .loader-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+        }
+
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .loader-percentage {
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">BROTHERS CREPS</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="../vista/mostrar_prueba.php" target="_blank">Mostrar Pedidos</a></li>
+                <li><a href="https://www.facebook.com/solecitom.monroymonroy" target="_blank">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+            <h1>BROTHERS CREPS</h1>
+    </section>
+    <center><h1 class="anuncio">Los mejores postres hechos con amor</h1></center>
+    <section id="productos" class="productos">
+        
+        <h2>Nuestros Productos</h2>
+        <div class="galeria">
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Tres leches durazno o fresa.jpg" alt="Tres leches durazno o fresa">
+                <h3>Tres leches durazno o fresa</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\biejo\pasteleria_BROTHERS CREPS\IMAGENES\Durazno cajeta.jpg" alt="Durazno cajeta">
+                <h3>Durazno cajeta</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Tres leches durazno nuez.jpg" alt="Tres leches durazno nuez">
+                <h3>Tres leches durazno nuez</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Tres leches fresa nuez.jpg" alt="Tres leches fresa nuez">
+                <h3>Tres leches fresa nuez</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel sin leches.jpg" alt="Pastel sin leches pan de vainilla o chocolate  Queso Philadelphia mermelada de zarzamora">
+                <h3>Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Red velvet  relleno con queso Philadelphia y mermelada de zarzamora..jpg" alt="Red velvet  relleno con queso Philadelphia y mermelada de zarzamora.">
+                <h3>Red velvet  relleno con queso Philadelphia y mermelada de zarzamora.</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Red velvet relleno con queso Philadelphia y cerezas.jpg" alt="Red velvet relleno con queso Philadelphia y cerezas">
+                <h3>Red velvet relleno con queso Philadelphia y cerezas</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel moka relleno de durazno.jpg">
+                <h3>Pastel moka relleno de durazno</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel chocolate tipo gansito.jpg" alt="Pastel chocolate tipo gansito">
+                <h3>Pastel chocolate tipo gansito</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel chocolate mazapán.jpg" alt="Pastel chocolate mazapán">
+                <h3>Pastel chocolate mazapán</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel chocolate sniker.jpg   " alt="Pastel chocolate sniker">
+                <h3>Pastel chocolate sniker</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Chocoflan.jpg" alt="Chocoflan">
+                <h3>Chocoflan</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Flan napolitano.jpg" alt="Flan napolitano">
+                <h3>Flan napolitano</h3>
+                <p>$180</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel tres leches pan vainilla con pan de chocolate.jpg" alt="Pastel tres leches pan vainilla con pan de chocolate">
+                <h3>Pastel tres leches pan vainilla con pan de chocolate</h3>
+                <p>$290</p>
+        </div>        </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <h2>HACEER PEDIDOS</h2>
+        <form id="myForm" action="../controlador/cafeteria.php" method="post">
+            <label>¿A qué nombre se va a entregar?:</label>
+            <input type="text" name="0" required>
+            <label>¿Qué pastel eligió para la ocasión?</label>
+            <select id="cakeSelect" name="1" required onchange="showFlavorField(this.value)">
+                <option value="">Seleccione un pastel</option>
+                <option value="Tres leches durazno o fresa">Tres leches durazno o fresa</option>
+                <option value="Durazno cajeta">Durazno cajeta</option>
+                <option value="Tres leches durazno nuez">Tres leches durazno nuez</option>
+                <option value="Tres leches fresa nuez">Tres leches fresa nuez</option>
+                <option value="Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora">Pastel sin leches pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora</option>
+                <option value="Red velvet relleno con queso Philadelphia y mermelada de zarzamora.">Red velvet relleno con queso Philadelphia y mermelada de zarzamora.</option>
+                <option value="Red velvet relleno con queso Philadelphia y cerezas">Red velvet relleno con queso Philadelphia y cerezas</option>
+                <option value="Pastel moka relleno de durazno">Pastel moka relleno de durazno</option>
+                <option value="Pastel chocolate tipo gansito">Pastel chocolate tipo gansito</option>
+                <option value="Pastel chocolate mazapán">Pastel chocolate mazapán</option>
+                <option value="Pastel chocolate sniker">Pastel chocolate sniker</option>
+                <option value="Chocoflan">Chocoflan</option>
+                <option value="Flan napolitano">Flan napolitano</option>
+                <option value="Pastel, pan de vainilla con pan de chocolate">Pastel, pan de vainilla con pan de chocolate</option>
+            </select><br><br>
+
+            <div id="flavorField" style="display: none;">
+                <label>¿De qué sabor desea el pan?</label>
+                <input type="text" name="savor de pan">
+            </div>
+            
+            <label>¿Qué día es la entrega?:</label>
+            <input type="date" name="2" required>
+            <label>Hora aproximada para recogerlo:</label>
+            <input type="time" name="3">
+            <label>Número de teléfono para contactarlo/a:</label>
+            <input type="tel" name="4" required>
+            <button type="submit">Enviar</button>
+            <input type="hidden" name="_captcha" value="false">
+        </form>
+        
+        <div id="loader-container" class="loader-container">
+            <div id="loader" class="loader">
+                <div id="countdown" class="loader-percentage">0%</div>
+            </div>
+            
+            <div class="loader-text">Procesando pedido</div>
+
+        </div>
+        
+        <script>
+            const form = document.getElementById('myForm');
+            const loaderContainer = document.getElementById('loader-container');
+            const countdown = document.getElementById('countdown');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault(); // Evita el envío del formulario por defecto
+
+                // Muestra el indicador de carga
+                loaderContainer.style.display = 'flex';
+
+                // Obtén los datos del formulario
+                const formData = new FormData(form);
+
+                // Envía los datos al correo
+                sendToEmail(formData);
+
+                // Iniciar el contador
+                let countdownValue = 0;
+                const countdownInterval = setInterval(() => {
+                    countdownValue += 20;
+                    countdown.textContent = `${countdownValue}%`;
+                    if (countdownValue >= 100) {
+                        clearInterval(countdownInterval);
+                        // Oculta el indicador de carga
+                        loaderContainer.style.display = 'none';
+                        // Envía el formulario a la primera URL
+                        form.submit();
+                    }
+                }, 1000);
+            });
+
+            function sendToEmail(formData) {
+                fetch('https://formsubmit.co/jesusisraelcruzmo20@gmail.com', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    console.log('Datos enviados al correo');
+                })
+                .catch(error => {
+                    console.error('Error al enviar los datos al correo:', error);
+                });
+            }
+            
+            function showFlavorField(selectedValue) {
+                const flavorField = document.getElementById('flavorField');
+                
+                if (selectedValue === 'Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora') {
+                    flavorField.style.display = 'block';
+                } else {
+                    flavorField.style.display = 'none';
+                }  
+            }
+        </script>
+        
+    </section>  
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2024 BROTHERS CREPS. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-right">
+                <p>Diseño por <strong>pasteeria BROTHERS CREPS</strong> | Desarrollo por <strong>JESUS</strong></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
