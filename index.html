@@ -192,7 +192,24 @@
     footer p {
         margin: 0;
     }
-    
+    /* Estilos para adaptar el chatbot en diferentes dispositivos */
+#cliengo-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100%;
+    max-width: 400px; /* Ajusta el tamaño máximo del chatbot */
+    z-index: 1000;
+}
+
+/* Para pantallas de dispositivos móviles */
+@media (max-width: 768px) {
+    #cliengo-chat {
+        bottom: 10px;
+        right: 10px;
+        width: calc(100% - 20px); /* Asegura que el chatbot se ajuste al ancho del dispositivo móvil */
+    }
+}
     </style>
 </head>
 <body>
@@ -213,8 +230,7 @@
     </section>
 
     <center><h1 class="anuncio">Los mejores postres hechos con amor</h1></center>
-<!-- Código de instalación Cliengo para https://blooddas8.github.io/Brothers-creps-online/ --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
-    <section id="productos" class="productos">
+<section id="productos" class="productos">
         <h2>Nuestros Productos</h2>
         <div class="galeria">
             <div class="galeria">
@@ -366,4 +382,16 @@
         }, 2000);
     });
 </script>
-            
+                !-- Código de instalación Cliengo -->
+    <script type="text/javascript">
+        (function () {
+            var ldk = document.createElement('script'); 
+            ldk.type = 'text/javascript'; 
+            ldk.async = true; 
+            ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular'; 
+            var s = document.getElementsByTagName('script')[0]; 
+            s.parentNode.insertBefore(ldk, s); 
+        })();
+    </script>
+</body>
+            </html>
