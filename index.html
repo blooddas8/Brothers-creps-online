@@ -248,16 +248,7 @@
     <section id="inicio" class="hero">
         <h1>BROTHERS CREPS</h1>
     </section>
-     <script type="text/javascript">
-        function openCliengoChat() {
-            if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
-                window.Cliengo.openChat();
-            } else {
-                alert('El chatbot de Cliengo no está disponible.');
-            }
-        }
-     </script>
-       <a href="javascript:void(0);" onclick="openCliengoChat()">¿Necesitas ayuda? Haz clic aquí para abrir el chat</a>
+    a href="javascript:void(0);" class="chat-link" onclick="openCliengoChat()">¿Necesitas ayuda? Haz clic aquí para abrir el chat</a>
 
     <!-- Código de instalación Cliengo -->
     <script type="text/javascript">
@@ -268,7 +259,27 @@
             ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ldk, s);
+
+            // Esperar a que el script se cargue
+            ldk.onload = function() {
+                window.Cliengo = window.Cliengo || {};
+                window.Cliengo.openChat = function() {
+                    if (window.cliengo && typeof window.cliengo.openChat === 'function') {
+                        window.cliengo.openChat();
+                    } else {
+                        console.log('El chatbot de Cliengo no está disponible.');
+                    }
+                };
+            };
         })();
+
+        function openCliengoChat() {
+            if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
+                window.Cliengo.openChat();
+            } else {
+                console.log('El chatbot de Cliengo no está disponible.');
+            }
+        }
     </script>
     <center><h1 class="anuncio">Los mejores postres hechos con amor</h1></center>
 <section id="productos" class="productos">
