@@ -293,18 +293,26 @@
     <section id="contacto" class="contacto">
         <h2>HACER PEDIDOS</h2>
         <form id="myForm" action="https://formsubmit.co/jesusisraelcruzmo20@gmail.com" method="POST">
-            <label>¿A qué nombre se va a entregar?:</label>
-            <input type="text" name="Nombre" required>
+           <label>¿A qué nombre se va a entregar?:</label>
+            <input type="text" name="0" required>
             <label>¿Qué pastel eligió para la ocasión?</label>
-            <select id="cakeSelect" name="Pastel" required>
+            <select id="cakeSelect" name="1" required onchange="showFlavorField(this.value)">
                 <option value="">Seleccione un pastel</option>
-                <!-- Opciones de pasteles -->
                 <option value="Tres leches durazno o fresa">Tres leches durazno o fresa</option>
                 <option value="Durazno cajeta">Durazno cajeta</option>
                 <option value="Tres leches durazno nuez">Tres leches durazno nuez</option>
-                <option value="Red velvet relleno con queso Philadelphia y mermelada de zarzamora">Red velvet relleno con queso Philadelphia y mermelada de zarzamora</option>
-            </select>
-
+                <option value="Tres leches fresa nuez">Tres leches fresa nuez</option>
+                <option value="Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora">Pastel sin leches pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora</option>
+                <option value="Red velvet relleno con queso Philadelphia y mermelada de zarzamora.">Red velvet relleno con queso Philadelphia y mermelada de zarzamora.</option>
+                <option value="Red velvet relleno con queso Philadelphia y cerezas">Red velvet relleno con queso Philadelphia y cerezas</option>
+                <option value="Pastel moka relleno de durazno">Pastel moka relleno de durazno</option>
+                <option value="Pastel chocolate tipo gansito">Pastel chocolate tipo gansito</option>
+                <option value="Pastel chocolate mazapán">Pastel chocolate mazapán</option>
+                <option value="Pastel chocolate sniker">Pastel chocolate sniker</option>
+                <option value="Chocoflan">Chocoflan</option>
+                <option value="Flan napolitano">Flan napolitano</option>
+                <option value="Pastel, pan de vainilla con pan de chocolate">Pastel, pan de vainilla con pan de chocolate</option>
+            </select><br><br>
             <label>¿Qué día es la entrega?:</label>
             <input type="date" name="Fecha_Entrega" required>
 
