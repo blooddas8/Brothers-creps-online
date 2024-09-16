@@ -293,7 +293,7 @@
     <section id="contacto" class="contacto">
         <h2>HACER PEDIDOS</h2>
         <form id="myForm" action="https://formsubmit.co/jesusisraelcruzmo20@gmail.com" method="POST">
-           <label>¿A qué nombre se va a entregar?:</label>
+          <label>¿A qué nombre se va a entregar?:</label>
             <input type="text" name="0" required>
             <label>¿Qué pastel eligió para la ocasión?</label>
             <select id="cakeSelect" name="1" required onchange="showFlavorField(this.value)">
@@ -312,25 +312,21 @@
                 <option value="Chocoflan">Chocoflan</option>
                 <option value="Flan napolitano">Flan napolitano</option>
                 <option value="Pastel, pan de vainilla con pan de chocolate">Pastel, pan de vainilla con pan de chocolate</option>
+            </select><br><br>
 
-                <div id="flavorField" style="display: none;">
+            <div id="flavorField" style="display: none;">
                 <label>¿De qué sabor desea el pan?</label>
                 <input type="text" name="savor de pan">
-                </div>
-
-                
-            </select><br><br>
+            </div>
+            
             <label>¿Qué día es la entrega?:</label>
-            <input type="date" name="Fecha_Entrega" required>
-
+            <input type="date" name="2" required>
             <label>Hora aproximada para recogerlo:</label>
-            <input type="time" name="Hora_Entrega" required>
-
+            <input type="time" name="3">
             <label>Número de teléfono para contactarlo/a:</label>
-            <input type="tel" name="Telefono" required>
-
-            <input type="hidden" name="_captcha" value="false">
+            <input type="tel" name="4" required>
             <button type="submit">Enviar</button>
+            <input type="hidden" name="_captcha" value="false">
         </form>
 
         <div id="loader-container" class="loader-container">
