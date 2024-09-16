@@ -188,7 +188,7 @@
         }
 
         /* Chatbot styles */
-          /* Estilos para el chatbot */
+         /* Estilos para el chatbot */
         #cliengo-chat {
             border: 1px solid #ddd;
             padding: 10px;
@@ -263,6 +263,7 @@
             font-size: 24px;
             text-align: center;
         }
+
     </style>
     </style>
 </head>
@@ -422,7 +423,6 @@
     </div>
 
     <!-- Chatbot -->
-   <!-- Chatbot -->
 <div id="cliengo-chat">
         <div class="minimize" onclick="toggleChat()"><span>-</span></div>
         <div class="content" id="chat-content">
@@ -449,24 +449,13 @@
             "despedida": "Si requieres más información o asistencia adicional, te invitamos a contactar directamente con nuestra supervisora y chef. 📞 Su información de contacto está disponible en la parte superior de la página. Estaremos encantados de ofrecerte la atención y el apoyo que necesites. 🌟 Te deseamos un día maravilloso y esperamos que disfrutes de nuestras exquisiteces. 🍰✨"
         };
 
-        const MAX_MESSAGES = 5; // Número máximo de mensajes visibles en el chat
-
         // Función para mostrar la respuesta según el botón presionado
         function showResponse(option) {
             let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
             const chatContent = document.getElementById('chat-content');
 
-            // Crear un nuevo párrafo para la respuesta
-            const messageElement = document.createElement('p');
-            messageElement.textContent = response;
-
-            // Añadir el nuevo mensaje al chat
-            chatContent.appendChild(messageElement);
-
-            // Mantener solo los mensajes más recientes
-            if (chatContent.children.length > MAX_MESSAGES) {
-                chatContent.removeChild(chatContent.firstChild);
-            }
+            // Limpiar el contenido actual y añadir el nuevo mensaje
+            chatContent.innerHTML = `<p>${response}</p>`;
 
             // Desplazar hacia abajo para mostrar el nuevo mensaje
             chatContent.scrollTop = chatContent.scrollHeight;
