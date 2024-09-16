@@ -188,39 +188,80 @@
         }
 
         /* Chatbot styles */
-         #cliengo-chat {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 300px;
-            background: white;
+     /* Estilos para el chatbot */
+        #cliengo-chat {
             border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            max-height: 300px;
-            overflow-y: auto;
+            padding: 10px;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; /* Inicialmente oculto */
+            z-index: 1000;
+            transition: all 0.3s ease;
+            max-height: 400px; /* Altura máxima para permitir desplazamiento */
+            overflow-y: auto; /* Agrega scroll si el contenido excede la altura máxima */
         }
 
         #cliengo-chat p {
-            margin: 0 0 10px;
-            font-size: 14px;
+            margin: 0;
+            padding: 5px 0;
         }
 
         #cliengo-chat button {
-            display: block;
-            width: 100%;
-            padding: 10px;
             margin: 5px 0;
+            padding: 10px;
             border: none;
-            background: #ff6b6b;
+            background-color: #ff6b6b;
             color: white;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        #cliengo-chat button:hover {
-            background: #ff4d4d;
+        #cliengo-chat .minimize {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #cliengo-chat .minimize span {
+            font-size: 20px;
+            color: white;
+        }
+
+        #cliengo-chat .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilos para el ícono del chatbot */
+        #chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            text-align: center;
         }
     </style>
 </head>
@@ -402,15 +443,20 @@
     </div>
 
     <!-- Chatbot -->
- <div id="cliengo-chat">
-        <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
-        <button onclick="showResponse('hola')">Hola</button>
-        <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
-        <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
-        <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
-        <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
-        <button onclick="showResponse('despedida')">Despedida</button>
+  <div id="cliengo-chat">
+        <div class="minimize" onclick="toggleChat()"><span>-</span></div>
+        <div class="content">
+            <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
+            <button onclick="showResponse('hola')">Hola</button>
+            <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
+            <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
+            <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
+            <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
+            <button onclick="showResponse('despedida')">Despedida</button>
+        </div>
     </div>
+
+    <div id="chat-icon" onclick="toggleChat()">💬</div>
 
     <script>
         // Respuestas del chatbot
@@ -425,14 +471,19 @@
 
         // Función para mostrar la respuesta según el botón presionado
         function showResponse(option) {
-            const chatContainer = document.getElementById('cliengo-chat');
             let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
+            const chatContent = document.querySelector('#cliengo-chat .content');
+            chatContent.innerHTML += `<p>${response}</p>`;
+            chatContent.scrollTop = chatContent.scrollHeight; // Desplaza hacia abajo
+        }
 
-            // Borra el mensaje previo
-            chatContainer.innerHTML = '';
-
-            // Añade el nuevo mensaje
-            chatContainer.innerHTML = `<p>${response}</p>`;
+        // Función para mostrar y ocultar el chatbot
+        function toggleChat() {
+            const chat = document.getElementById('cliengo-chat');
+            const isVisible = chat.style.display === 'block';
+            chat.style.display = isVisible ? 'none' : 'block';
+            const chatIcon = document.getElementById('chat-icon');
+            chatIcon.style.display = isVisible ? 'block' : 'none'; // Muestra el ícono cuando el chat está oculto
         }
     </script>
 </body>
