@@ -204,6 +204,72 @@
                 width: calc(100% - 20px);
             }
         }
+
+        /*css del chat bot*/
+        /* Estilos generales para el chatbot */
+#cliengo-chat {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+}
+
+/* Estilo para el texto del chatbot */
+#cliengo-chat p {
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Estilo para los botones del chatbot */
+#cliengo-chat button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Estilo para los botones al pasar el mouse */
+#cliengo-chat button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Estilo para los botones al hacer clic */
+#cliengo-chat button:active {
+    background-color: #00408a;
+    transform: scale(1);
+}
+
+/* Estilo para el área del chatbot en general */
+#cliengo-chat {
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+/* Estilo para las respuestas */
+#cliengo-chat p:last-child {
+    margin-bottom: 0;
+}
+
     </style>
 </head>
 
