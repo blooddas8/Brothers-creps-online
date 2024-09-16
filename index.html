@@ -231,17 +231,7 @@
                 padding: 8px 15px;
             }
         }
-          /* Estilo para el botón */
-        .chat-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
+         
     </style>
 </head>
 <body>
@@ -259,9 +249,7 @@
     <section id="inicio" class="hero">
         <h1>BROTHERS CREPS</h1>
     </section>
-       <div class="chat-button" onclick="openCliengoChat()">¿Necesitas ayuda? Haz clic aquí para abrir el chat</div>
-
-    <!-- Código de instalación Cliengo -->
+      
     <script type="text/javascript">
         (function () {
             var ldk = document.createElement('script');
@@ -273,18 +261,20 @@
 
             // Esperar a que el script se cargue
             ldk.onload = function() {
-                // Comprobar si el objeto Cliengo está disponible
-                if (window.cliengo && typeof window.cliengo.openChat === 'function') {
-                    console.log('Chat de Cliengo está disponible.');
-                } else {
-                    console.log('El chatbot de Cliengo no está disponible.');
-                }
+                window.Cliengo = window.Cliengo || {};
+                window.Cliengo.openChat = function() {
+                    if (window.cliengo && typeof window.cliengo.openChat === 'function') {
+                        window.cliengo.openChat();
+                    } else {
+                        console.log('El chatbot de Cliengo no está disponible.');
+                    }
+                };
             };
         })();
 
         function openCliengoChat() {
-            if (window.cliengo && typeof window.cliengo.openChat === 'function') {
-                window.cliengo.openChat();
+            if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
+                window.Cliengo.openChat();
             } else {
                 console.log('El chatbot de Cliengo no está disponible.');
             }
