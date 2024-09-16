@@ -252,36 +252,35 @@
       <a href="javascript:void(0);" class="chat-link" onclick="openCliengoChat()">¿Necesitas ayuda? Haz clic aquí para abrir el chat</a>
 
     <!-- Código de instalación Cliengo -->
-    <script type="text/javascript">
-        (function () {
-            var ldk = document.createElement('script');
-            ldk.type = 'text/javascript';
-            ldk.async = true;
-            ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ldk, s);
+   <script type="text/javascript">
+    (function () {
+        var ldk = document.createElement('script');
+        ldk.type = 'text/javascript';
+        ldk.async = true;
+        ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ldk, s);
 
-            // Esperar a que el script se cargue
-            ldk.onload = function() {
-                window.Cliengo = window.Cliengo || {};
-                window.Cliengo.openChat = function() {
-                    if (window.cliengo && typeof window.cliengo.openChat === 'function') {
-                        window.cliengo.openChat();
-                    } else {
-                        console.log('El chatbot de Cliengo no está disponible.');
-                    }
-                };
+        ldk.onload = function() {
+            window.cliengo = window.cliengo || {};
+            window.cliengo.openChat = function() {
+                if (window.cliengo && typeof window.cliengo.openChat === 'function') {
+                    window.cliengo.openChat();
+                } else {
+                    console.log('El chatbot de Cliengo no está disponible.');
+                }
             };
-        })();
+        };
+    })();
 
-        function openCliengoChat() {
-            if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
-                window.Cliengo.openChat();
-            } else {
-                console.log('El chatbot de Cliengo no está disponible.');
-            }
+    function openCliengoChat() {
+        if (window.cliengo && typeof window.cliengo.openChat === 'function') {
+            window.cliengo.openChat();
+        } else {
+            console.log('El chatbot de Cliengo no está disponible.');
         }
-    </script>
+    }
+   </script>
     <center><h1 class="anuncio">Los mejores postres hechos con amor</h1></center>
 <section id="productos" class="productos">
         <h2>Nuestros Productos</h2>
