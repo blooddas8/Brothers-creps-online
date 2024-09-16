@@ -340,21 +340,33 @@
         <p>Diseño por <strong>pasteeria BROTHERS CREPS</strong> | Desarrollo por <strong>JESUS</strong></p>
     </footer>
 
-    <script>
-        const form = document.getElementById('myForm');
-        const loaderContainer = document.getElementById('loader-container');
+   <script>
+    function showFlavorField(selectedCake) {
+        const flavorField = document.getElementById('flavorField');
+        
+        // Mostrar el campo solo si se selecciona el pastel sin leches
+        if (selectedCake === 'Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora') {
+            flavorField.style.display = 'block'; // Muestra el campo de sabor de pan
+        } else {
+            flavorField.style.display = 'none'; // Oculta el campo de sabor de pan
+        }
+    }
 
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
+    const form = document.getElementById('myForm');
+    const loaderContainer = document.getElementById('loader-container');
 
-            loaderContainer.style.display = 'flex'; // Muestra el loader
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-            // Enviar el formulario
-            setTimeout(() => {
-                form.submit(); // Envía el formulario después de 2 segundos
-            }, 2000);
-        });
-    </script>
+        loaderContainer.style.display = 'flex'; // Muestra el loader
+
+        // Enviar el formulario
+        setTimeout(() => {
+            form.submit(); // Envía el formulario después de 2 segundos
+        }, 2000);
+    });
+</script>
+
 </body>
 </html>
 
