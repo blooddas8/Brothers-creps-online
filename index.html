@@ -408,33 +408,5 @@
         <p>&copy; 2024 BROTHERS CREPS. Todos los derechos reservados.</p>
         <p>Diseño por <strong>pasteleria BROTHERS CREPS</strong> | Desarrollo por <strong>JESUS</strong></p>
     </footer>
-
-   <script>
-    function showFlavorField(selectedCake) {
-        const flavorField = document.getElementById('flavorField');
-        
-        // Mostrar el campo solo si se selecciona el pastel sin leches
-        if (selectedCake === 'Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora') {
-            flavorField.style.display = 'block'; // Muestra el campo de sabor de pan
-        } else {
-            flavorField.style.display = 'none'; // Oculta el campo de sabor de pan
-        }
-    }
-
-    const form = document.getElementById('myForm');
-    const loaderContainer = document.getElementById('loader-container');
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        loaderContainer.style.display = 'flex'; // Muestra el loader
-
-        // Enviar el formulario
-        setTimeout(() => {
-            form.submit(); // Envía el formulario después de 2 segundos
-        }, 2000);
-    });
-</script>
-        <!-- Código de instalación Cliengo para https://blooddas8.github.io/Brothers-creps-online/ --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
 </body>
 </html>
