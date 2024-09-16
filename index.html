@@ -424,19 +424,14 @@
 
     <!-- Chatbot -->
 <div id="cliengo-chat">
-        <div class="minimize" onclick="toggleChat()"><span>-</span></div>
-        <div class="content" id="chat-content">
-            <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
-            <button onclick="showResponse('hola')">Hola</button>
-            <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
-            <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
-            <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
-            <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
-            <button onclick="showResponse('despedida')">Despedida</button>
-        </div>
+        <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
+        <button onclick="showResponse('hola')">Hola</button>
+        <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
+        <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
+        <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
+        <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
+        <button onclick="showResponse('despedida')">Despedida</button>
     </div>
-
-    <div id="chat-icon" onclick="toggleChat()">💬</div>
 
     <script>
         // Respuestas del chatbot
@@ -451,23 +446,14 @@
 
         // Función para mostrar la respuesta según el botón presionado
         function showResponse(option) {
+            const chatContainer = document.getElementById('cliengo-chat');
             let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
-            const chatContent = document.getElementById('chat-content');
 
-            // Limpiar el contenido actual y añadir el nuevo mensaje
-            chatContent.innerHTML = `<p>${response}</p>`;
+            // Borra los mensajes existentes
+            chatContainer.innerHTML = '';
 
-            // Desplazar hacia abajo para mostrar el nuevo mensaje
-            chatContent.scrollTop = chatContent.scrollHeight;
-        }
-
-        // Función para mostrar y ocultar el chatbot
-        function toggleChat() {
-            const chat = document.getElementById('cliengo-chat');
-            const isVisible = chat.style.display === 'block';
-            chat.style.display = isVisible ? 'none' : 'block';
-            const chatIcon = document.getElementById('chat-icon');
-            chatIcon.style.display = isVisible ? 'block' : 'none'; // Muestra el ícono cuando el chat está oculto
+            // Añade el nuevo mensaje
+            chatContainer.innerHTML = `<p>${response}</p>`;
         }
     </script>
 </body>
