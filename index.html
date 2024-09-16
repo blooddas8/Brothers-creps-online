@@ -248,8 +248,16 @@
     <section id="inicio" class="hero">
         <h1>BROTHERS CREPS</h1>
     </section>
- <!-- Enlace para iniciar el chat -->
-    <a href="#" class="chat-link" id="start-chat">¿Necesitas asistencia? Haz clic aquí</a>
+     <script type="text/javascript">
+        function openCliengoChat() {
+            if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
+                window.Cliengo.openChat();
+            } else {
+                alert('El chatbot de Cliengo no está disponible.');
+            }
+        }
+     </script>
+       <a href="javascript:void(0);" onclick="openCliengoChat()">¿Necesitas ayuda? Haz clic aquí para abrir el chat</a>
 
     <!-- Código de instalación Cliengo -->
     <script type="text/javascript">
@@ -261,29 +269,6 @@
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ldk, s);
         })();
-
-        // Espera a que el script de Cliengo esté cargado
-        window.addEventListener('load', function() {
-            var chatLink = document.getElementById('start-chat');
-
-            chatLink.addEventListener('click', function(event) {
-                event.preventDefault();
-
-                // Pregunta si el usuario necesita asistencia
-                var userResponse = confirm('¿Deseas abrir el chat de asistencia?');
-
-                if (userResponse) {
-                    // Añade una demora antes de intentar abrir el chat
-                    setTimeout(function() {
-                        if (window.Cliengo && typeof window.Cliengo.openChat === 'function') {
-                            window.Cliengo.openChat();
-                        } else {
-                            console.error('Método openChat no disponible en Cliengo.');
-                        }
-                    }, 1000); // Demora de 1 segundo
-                }
-            });
-        });
     </script>
     <center><h1 class="anuncio">Los mejores postres hechos con amor</h1></center>
 <section id="productos" class="productos">
