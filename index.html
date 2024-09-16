@@ -469,49 +469,21 @@
     </div>
 
     <!-- Chatbot -->
-  <div id="cliengo-chat">
-        <div class="minimize" onclick="toggleChat()"><span>-</span></div>
-        <div class="content">
+ <div id="cliengo-chat">
+    <div class="minimize" onclick="toggleChat()"><span>-</span></div>
+    <div class="content">
+        <div class="message">
+            <img src="pasteleria_BROTHERS CREPS/estilo css/chatbot.jpeg" alt="Chatbot">
             <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
-            <button onclick="showResponse('hola')">Hola</button>
-            <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
-            <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
-            <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
-            <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
-            <button onclick="showResponse('despedida')">Despedida</button>
         </div>
+        <button onclick="showResponse('hola')">Hola</button>
+        <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
+        <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
+        <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
+        <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
+        <button onclick="showResponse('despedida')">Despedida</button>
     </div>
-
-    <div id="chat-icon" onclick="toggleChat()">💬</div>
-
-    <script>
-        // Respuestas del chatbot
-        const responses = {
-            "hola": "¡Hola, amante de los postres! 🎉 Soy CrepBot, tu guía para disfrutar de nuestras delicias, desde crepes hasta una variedad de postres y comidas irresistibles. 🍫🥞🍰 ¿En qué puedo ayudarte hoy? ¡Estoy aquí para hacer tu día más dulce y delicioso! 😄",
-            "hacer un pedido": "¡Claro! 🎉 Para hacer tu pedido, simplemente desplázate hacia abajo en la página y selecciona el pastel que te gustaría. Ten en cuenta que necesitamos recibir tu pedido con al menos 5 días de anticipación para garantizar la frescura y calidad. ¡Gracias por tu comprensión! 🍰😊",
-            "pasteles más recomendados": "Aquí te presentamos algunas de nuestras opciones más destacadas: \n1. Pastel de Red Velvet ❤️: Un elegante pastel con un vibrante color rojo y un delicado sabor a vainilla, adornado con un suave glaseado de queso crema.\n2. Pastel de Chocolate Trufado 🍫: Un exquisito pastel de chocolate, enriquecido con una suave capa de trufa.",
-            "personalizar pastel": "Por supuesto, estaremos encantados de ofrecerte un pastel totalmente personalizado. 🎂✨ Elige entre una variedad de sabores, decoraciones y diseños para que tu pastel sea único. ¡Solo háznos saber tus preferencias! 🌟",
-            "ofertas grandes pedidos": "En este momento, no contamos con ofertas especiales para pedidos grandes. 🌟 Sin embargo, puedes comunicarte directamente con nuestra chef para explorar opciones personalizadas. Su información está disponible en la parte superior de la página. 📞",
-            "despedida": "Si requieres más información o asistencia adicional, te invitamos a contactar directamente con nuestra supervisora y chef. 📞 Su información de contacto está disponible en la parte superior de la página. Estaremos encantados de ofrecerte la atención y el apoyo que necesites. 🌟 Te deseamos un día maravilloso y esperamos que disfrutes de nuestras exquisiteces. 🍰✨"
-        };
-
-        // Función para mostrar la respuesta según el botón presionado
-        function showResponse(option) {
-            let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
-            const chatContent = document.querySelector('#cliengo-chat .content');
-            chatContent.innerHTML += `<p>${response}</p>`;
-            chatContent.scrollTop = chatContent.scrollHeight; // Desplaza hacia abajo
-        }
-
-        // Función para mostrar y ocultar el chatbot
-        function toggleChat() {
-            const chat = document.getElementById('cliengo-chat');
-            const isVisible = chat.style.display === 'block';
-            chat.style.display = isVisible ? 'none' : 'block';
-            const chatIcon = document.getElementById('chat-icon');
-            chatIcon.style.display = isVisible ? 'block' : 'none'; // Muestra el ícono cuando el chat está oculto
-        }
-    </script>
+ </div>
 </body>
 
 </html>
