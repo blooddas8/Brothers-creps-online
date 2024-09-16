@@ -188,33 +188,22 @@
         }
 
         /* Chatbot styles */
+          /* Estilos para el chatbot */
         #cliengo-chat {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 100%;
-            max-width: 400px;
-            z-index: 1000;
-        }
-
-        @media (max-width: 768px) {
-            #cliengo-chat {
-                bottom: 10px;
-                right: 10px;
-                width: calc(100% - 20px);
-            }
-        }
-
-        /*css del chat bot*/
-  #cliengo-chat {
             border: 1px solid #ddd;
-            padding: 20px;
+            padding: 10px;
             max-width: 400px;
-            margin: 20px auto;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: relative;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; /* Inicialmente oculto */
+            z-index: 1000;
+            transition: all 0.3s ease;
+            max-height: 400px; /* Altura máxima para permitir desplazamiento */
+            overflow-y: auto; /* Agrega scroll si el contenido excede la altura máxima */
         }
 
         #cliengo-chat p {
@@ -226,38 +215,55 @@
             margin: 5px 0;
             padding: 10px;
             border: none;
-            border-radius: 5px;
             background-color: #ff6b6b;
             color: white;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
         }
 
-        #cliengo-chat button:hover {
-            background-color: #ff4d4d;
-        }
-
-        #minimize-btn {
+        #cliengo-chat .minimize {
             position: absolute;
             top: 10px;
             right: 10px;
             background-color: #ff6b6b;
-            color: white;
-            border: none;
             border-radius: 50%;
             width: 30px;
             height: 30px;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             cursor: pointer;
         }
 
-        #response-container {
-            max-height: 200px;
-            overflow-y: auto;
+        #cliengo-chat .minimize span {
+            font-size: 20px;
+            color: white;
         }
 
+        #cliengo-chat .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilos para el ícono del chatbot */
+        #chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
     </style>
 </head>
 
@@ -418,8 +424,8 @@
     <!-- Chatbot -->
    <!-- Chatbot -->
 <div id="cliengo-chat">
-        <button id="minimize-btn" onclick="toggleChat()">-</button>
-        <div id="chat-content">
+        <div class="minimize" onclick="toggleChat()"><span>-</span></div>
+        <div class="content" id="chat-content">
             <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
             <button onclick="showResponse('hola')">Hola</button>
             <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
@@ -427,9 +433,10 @@
             <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
             <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
             <button onclick="showResponse('despedida')">Despedida</button>
-            <div id="response-container"></div>
         </div>
     </div>
+
+    <div id="chat-icon" onclick="toggleChat()">💬</div>
 
     <script>
         // Respuestas del chatbot
@@ -442,64 +449,37 @@
             "despedida": "Si requieres más información o asistencia adicional, te invitamos a contactar directamente con nuestra supervisora y chef. 📞 Su información de contacto está disponible en la parte superior de la página. Estaremos encantados de ofrecerte la atención y el apoyo que necesites. 🌟 Te deseamos un día maravilloso y esperamos que disfrutes de nuestras exquisiteces. 🍰✨"
         };
 
+        const MAX_MESSAGES = 5; // Número máximo de mensajes visibles en el chat
+
         // Función para mostrar la respuesta según el botón presionado
         function showResponse(option) {
             let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
-            const responseContainer = document.getElementById('response-container');
-            responseContainer.innerHTML += `<p>${response}</p>`;
-        }
-
-        // Función para minimizar y expandir el chat
-        function toggleChat() {
             const chatContent = document.getElementById('chat-content');
-            const minimizeBtn = document.getElementById('minimize-btn');
-            if (chatContent.style.display === 'none') {
-                chatContent.style.display = 'block';
-                minimizeBtn.textContent = '-';
-            } else {
-                chatContent.style.display = 'none';
-                minimizeBtn.textContent = '+';
+
+            // Crear un nuevo párrafo para la respuesta
+            const messageElement = document.createElement('p');
+            messageElement.textContent = response;
+
+            // Añadir el nuevo mensaje al chat
+            chatContent.appendChild(messageElement);
+
+            // Mantener solo los mensajes más recientes
+            if (chatContent.children.length > MAX_MESSAGES) {
+                chatContent.removeChild(chatContent.firstChild);
             }
-        }
-    </script>
 
-
-
-    <script>
-        // Mostrar el campo de sabor del pastel solo si se elige la opción "Pastel sin leches"
-        function showFlavorField(selectedValue) {
-            if (selectedValue === 'Pastel sin leches, pan de vainilla o chocolate') {
-                document.getElementById('flavorField').style.display = 'block';
-            } else {
-                document.getElementById('flavorField').style.display = 'none';
-            }
+            // Desplazar hacia abajo para mostrar el nuevo mensaje
+            chatContent.scrollTop = chatContent.scrollHeight;
         }
 
-        // Simulación de chatbot
-        function optionSelected(option) {
-            let chatbot = document.getElementById('cliengo-chat');
-            if (option === 'Precios de productos') {
-                chatbot.innerHTML += "<p>Tenemos pasteles desde $290 MXN. ¿Te gustaría saber más detalles?</p>";
-            } else if (option === 'Hacer un pedido') {
-                chatbot.innerHTML += "<p>Para hacer un pedido, por favor, completa el formulario en la sección 'Hacer Pedidos'.</p>";
-            } else if (option === 'Ubicaciones') {
-                chatbot.innerHTML += "<p>Nuestra tienda se encuentra en: <a href='https://www.google.com.mx/maps/@19.3490322,-99.6828347,3a,75y,174.24h,79.93t/data=!3m6!1e1!3m4!1sW-kSG2bI5QLS1bHMMrCBGA!2e0!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI0MDkxMS4wIKXMDSoASAFQAw%3D%3D' target='_blank'>Google Maps</a>.</p>";
-            }
+        // Función para mostrar y ocultar el chatbot
+        function toggleChat() {
+            const chat = document.getElementById('cliengo-chat');
+            const isVisible = chat.style.display === 'block';
+            chat.style.display = isVisible ? 'none' : 'block';
+            const chatIcon = document.getElementById('chat-icon');
+            chatIcon.style.display = isVisible ? 'block' : 'none'; // Muestra el ícono cuando el chat está oculto
         }
-
-        // Simulación del loader
-        function showLoader() {
-            document.getElementById('loader').style.display = 'flex';
-        }
-
-        function hideLoader() {
-            document.getElementById('loader').style.display = 'none';
-        }
-
-        // Opcional: Mostrar loader al enviar el formulario
-        document.getElementById('myForm').addEventListener('submit', function () {
-            showLoader();
-        });
     </script>
 </body>
 
