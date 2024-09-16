@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BROTHERS CREPS</title>
-    <style>
+   <style>
         .loader-container {
             display: none;
             justify-content: center;
@@ -47,148 +47,149 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+          /* Estilos CSS para hacer que tu página se parezca más a "El Globo" */
+     body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f7f7f7; /* Color de fondo general */
+        color: #333; /* Color de texto principal */
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f7f7f7;
-            color: #333;
-        }
+    header {
+        background-color: #ff6b6b; /* Color de fondo del encabezado */
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo del encabezado */
+    }
 
-        header {
-            background-color: #ff6b6b;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
 
-        .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+    nav ul li {
+        margin-left: 20px;
+    }
 
-        nav ul li {
-            margin-left: 20px;
-        }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
+    .hero {
+        position: relative;
+        background: url('crepa.jpg') no-repeat center center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para legibilidad del texto */
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+    }
 
-        .hero {
-            position: relative;
-            background: url('crepa.jpg') no-repeat center center;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
+    .hero h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
 
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
+    .productos {
+        padding: 50px 20px;
+        background-color: #f7f7f7;
+        text-align: center;
+    }
 
-        .productos {
-            padding: 50px 20px;
-            background-color: #f7f7f7;
-            text-align: center;
-        }
+    .galeria {
+        display: flex;
+        justify-content: space-around; /* Distribución equitativa de los productos */
+        flex-wrap: wrap;
+        margin-top: 30px; /* Espacio superior entre la sección anterior y la galería */
+    }
 
-        .galeria {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
+    .producto {
+        background: white;
+        padding: 20px;
+        margin: 15px; /* Espacio entre los productos */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px;
+    }
 
-        .producto {
-            background: white;
-            padding: 20px;
-            margin: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-        }
+    .producto img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px; /* Bordes redondeados para las imágenes */
+    }
 
-        .producto img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+    .contacto {
+        padding: 50px 20px;
+        background-color: #ff6b6b; /* Color de fondo de la sección de contacto */
+        color: white;
+        text-align: center;
+    }
 
-        .contacto {
-            padding: 50px 20px;
-            background-color: #ff6b6b;
-            color: white;
-            text-align: center;
-        }
+    .contacto h2 {
+        margin-bottom: 30px;
+    }
 
-        .contacto h2 {
-            margin-bottom: 30px;
-        }
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+    }
 
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
+    form label {
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        form label {
-            display: block;
-            margin-bottom: 5px;
-        }
+    form input,
+    form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+    }
 
-        form input,
-        form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-        }
+    form button {
+        background-color: white;
+        color: #ff6b6b;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        form button {
-            background-color: white;
-            color: #ff6b6b;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    footer {
+        background-color: #333; /* Color de fondo del pie de página */
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+    }
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        footer p {
-            margin: 0;
-        }
+    footer p {
+        margin: 0;
+    }
     
     </style>
 </head>
@@ -213,8 +214,76 @@
     <section id="productos" class="productos">
         <h2>Nuestros Productos</h2>
         <div class="galeria">
-            <!-- Galería de productos -->
-            <!-- Añade tus productos aquí -->
+            <div class="galeria">
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Tres leches durazno o fresa.jpg" alt="Tres leches durazno o fresa">
+                <h3>Tres leches durazno o fresa</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\biejo\pasteleria_BROTHERS CREPS\IMAGENES\Durazno cajeta.jpg" alt="Durazno cajeta">
+                <h3>Durazno cajeta</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Tres leches durazno nuez.jpg" alt="Tres leches durazno nuez">
+                <h3>Tres leches durazno nuez</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Tres leches fresa nuez.jpg" alt="Tres leches fresa nuez">
+                <h3>Tres leches fresa nuez</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel sin leches.jpg" alt="Pastel sin leches pan de vainilla o chocolate  Queso Philadelphia mermelada de zarzamora">
+                <h3>Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Red velvet  relleno con queso Philadelphia y mermelada de zarzamora..jpg" alt="Red velvet  relleno con queso Philadelphia y mermelada de zarzamora.">
+                <h3>Red velvet  relleno con queso Philadelphia y mermelada de zarzamora.</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Red velvet relleno con queso Philadelphia y cerezas.jpg" alt="Red velvet relleno con queso Philadelphia y cerezas">
+                <h3>Red velvet relleno con queso Philadelphia y cerezas</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel moka relleno de durazno.jpg">
+                <h3>Pastel moka relleno de durazno</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel chocolate tipo gansito.jpg" alt="Pastel chocolate tipo gansito">
+                <h3>Pastel chocolate tipo gansito</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel chocolate mazapán.jpg" alt="Pastel chocolate mazapán">
+                <h3>Pastel chocolate mazapán</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel chocolate sniker.jpg   " alt="Pastel chocolate sniker">
+                <h3>Pastel chocolate sniker</h3>
+                <p>$340</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Chocoflan.jpg" alt="Chocoflan">
+                <h3>Chocoflan</h3>
+                <p>$290</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Flan napolitano.jpg" alt="Flan napolitano">
+                <h3>Flan napolitano</h3>
+                <p>$180</p>
+            </div>
+            <div class="producto">
+                <img src="\prueba de tienda\IMAGENES\Pastel tres leches pan vainilla con pan de chocolate.jpg" alt="Pastel tres leches pan vainilla con pan de chocolate">
+                <h3>Pastel tres leches pan vainilla con pan de chocolate</h3>
+                <p>$290</p>
         </div>
     </section>
 
