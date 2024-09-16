@@ -206,69 +206,57 @@
         }
 
         /*css del chat bot*/
-        /* Estilos generales para el chatbot */
-#cliengo-chat {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 300px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    z-index: 1000;
-}
+  #cliengo-chat {
+            border: 1px solid #ddd;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
 
-/* Estilo para el texto del chatbot */
-#cliengo-chat p {
-    margin: 0 0 10px;
-    padding: 0;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #333;
-}
+        #cliengo-chat p {
+            margin: 0;
+            padding: 5px 0;
+        }
 
-/* Estilo para los botones del chatbot */
-#cliengo-chat button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
+        #cliengo-chat button {
+            margin: 5px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6b6b;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-/* Estilo para los botones al pasar el mouse */
-#cliengo-chat button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
+        #cliengo-chat button:hover {
+            background-color: #ff4d4d;
+        }
 
-/* Estilo para los botones al hacer clic */
-#cliengo-chat button:active {
-    background-color: #00408a;
-    transform: scale(1);
-}
+        #minimize-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
 
-/* Estilo para el área del chatbot en general */
-#cliengo-chat {
-    overflow-y: auto;
-    max-height: 400px;
-}
-
-/* Estilo para las respuestas */
-#cliengo-chat p:last-child {
-    margin-bottom: 0;
-}
+        #response-container {
+            max-height: 200px;
+            overflow-y: auto;
+        }
 
     </style>
 </head>
@@ -430,32 +418,50 @@
     <!-- Chatbot -->
    <!-- Chatbot -->
 <div id="cliengo-chat">
-    <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
-    <button onclick="showResponse('hola')">Hola</button>
-    <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
-    <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
-    <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
-    <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
-    <button onclick="showResponse('despedida')">Despedida</button>
-</div>
+        <button id="minimize-btn" onclick="toggleChat()">-</button>
+        <div id="chat-content">
+            <p>Bienvenido a BROTHERS CREPS. ¿En qué puedo ayudarte?</p>
+            <button onclick="showResponse('hola')">Hola</button>
+            <button onclick="showResponse('hacer un pedido')">Hacer un pedido</button>
+            <button onclick="showResponse('pasteles más recomendados')">Pasteles más recomendados</button>
+            <button onclick="showResponse('personalizar pastel')">Personalizar pastel</button>
+            <button onclick="showResponse('ofertas grandes pedidos')">Ofertas para grandes pedidos</button>
+            <button onclick="showResponse('despedida')">Despedida</button>
+            <div id="response-container"></div>
+        </div>
+    </div>
 
     <script>
-    // Respuestas del chatbot
-    const responses = {
-        "hola":¡Hola, amante de los postres! 🎉 Soy CrepBot, tu guía para disfrutar de nuestras delicias, desde crepes hasta una variedad de postres y comidas irresistibles. 🍫🥞🍰 ¿En qué puedo ayudarte hoy? ¡Estoy aquí para hacer tu día más dulce y delicioso! 😄",
-        "hacer un pedido": "¡Claro! 🎉 Para hacer tu pedido, simplemente desplázate hacia abajo en la página y selecciona el pastel que te gustaría. Ten en cuenta que necesitamos recibir tu pedido con al menos 5 días de anticipación para garantizar la frescura y calidad. ¡Gracias por tu comprensión! 🍰😊",
-        "pasteles más recomendados": "Aquí te presentamos algunas de nuestras opciones más destacadas: \n1. Pastel de Red Velvet ❤️: Un elegante pastel con un vibrante color rojo y un delicado sabor a vainilla, adornado con un suave glaseado de queso crema.\n2. Pastel de Chocolate Trufado 🍫: Un exquisito pastel de chocolate, enriquecido con una suave capa de trufa.",
-        "personalizar pastel": "Por supuesto, estaremos encantados de ofrecerte un pastel totalmente personalizado. 🎂✨ Elige entre una variedad de sabores, decoraciones y diseños para que tu pastel sea único. ¡Solo háznos saber tus preferencias! 🌟",
-        "ofertas grandes pedidos": "En este momento, no contamos con ofertas especiales para pedidos grandes. 🌟 Sin embargo, puedes comunicarte directamente con nuestra chef para explorar opciones personalizadas. Su información está disponible en la parte superior de la página. 📞",
-        "despedida": "Si requieres más información o asistencia adicional, te invitamos a contactar directamente con nuestra supervisora y chef. 📞 Su información de contacto está disponible en la parte superior de la página. Estaremos encantados de ofrecerte la atención y el apoyo que necesites. 🌟 Te deseamos un día maravilloso y esperamos que disfrutes de nuestras exquisiteces. 🍰✨"
-    };
+        // Respuestas del chatbot
+        const responses = {
+            "hola": "¡Hola, amante de los postres! 🎉 Soy CrepBot, tu guía para disfrutar de nuestras delicias, desde crepes hasta una variedad de postres y comidas irresistibles. 🍫🥞🍰 ¿En qué puedo ayudarte hoy? ¡Estoy aquí para hacer tu día más dulce y delicioso! 😄",
+            "hacer un pedido": "¡Claro! 🎉 Para hacer tu pedido, simplemente desplázate hacia abajo en la página y selecciona el pastel que te gustaría. Ten en cuenta que necesitamos recibir tu pedido con al menos 5 días de anticipación para garantizar la frescura y calidad. ¡Gracias por tu comprensión! 🍰😊",
+            "pasteles más recomendados": "Aquí te presentamos algunas de nuestras opciones más destacadas: \n1. Pastel de Red Velvet ❤️: Un elegante pastel con un vibrante color rojo y un delicado sabor a vainilla, adornado con un suave glaseado de queso crema.\n2. Pastel de Chocolate Trufado 🍫: Un exquisito pastel de chocolate, enriquecido con una suave capa de trufa.",
+            "personalizar pastel": "Por supuesto, estaremos encantados de ofrecerte un pastel totalmente personalizado. 🎂✨ Elige entre una variedad de sabores, decoraciones y diseños para que tu pastel sea único. ¡Solo háznos saber tus preferencias! 🌟",
+            "ofertas grandes pedidos": "En este momento, no contamos con ofertas especiales para pedidos grandes. 🌟 Sin embargo, puedes comunicarte directamente con nuestra chef para explorar opciones personalizadas. Su información está disponible en la parte superior de la página. 📞",
+            "despedida": "Si requieres más información o asistencia adicional, te invitamos a contactar directamente con nuestra supervisora y chef. 📞 Su información de contacto está disponible en la parte superior de la página. Estaremos encantados de ofrecerte la atención y el apoyo que necesites. 🌟 Te deseamos un día maravilloso y esperamos que disfrutes de nuestras exquisiteces. 🍰✨"
+        };
 
-    // Función para mostrar la respuesta según el botón presionado
-    function showResponse(option) {
-        let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
-        document.getElementById('cliengo-chat').innerHTML += `<p>${response}</p>`;
-    }
-</script>
+        // Función para mostrar la respuesta según el botón presionado
+        function showResponse(option) {
+            let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
+            const responseContainer = document.getElementById('response-container');
+            responseContainer.innerHTML += `<p>${response}</p>`;
+        }
+
+        // Función para minimizar y expandir el chat
+        function toggleChat() {
+            const chatContent = document.getElementById('chat-content');
+            const minimizeBtn = document.getElementById('minimize-btn');
+            if (chatContent.style.display === 'none') {
+                chatContent.style.display = 'block';
+                minimizeBtn.textContent = '-';
+            } else {
+                chatContent.style.display = 'none';
+                minimizeBtn.textContent = '+';
+            }
+        }
+    </script>
 
 
 
