@@ -1,71 +1,17 @@
-const chatbotMessages = document.getElementById('messages');
-const userOptions = document.getElementById('user-options');
+<script>
+    // Respuestas del chatbot
+    const responses = {
+        "hola": "Hola, {Nombre del visitante}, muchas gracias por ponerte en contacto nuevamente. 🌟 Apreciamos tu interés y estamos aquí para asistirte en lo que necesites. ¿En qué más puedo ayudarte hoy? 😊",
+        "hacer un pedido": "¡Claro! 🎉 Para hacer tu pedido, simplemente desplázate hacia abajo en la página y selecciona el pastel que te gustaría. Ten en cuenta que necesitamos recibir tu pedido con al menos 5 días de anticipación para garantizar la frescura y calidad. ¡Gracias por tu comprensión! 🍰😊",
+        "pasteles más recomendados": "Aquí te presentamos algunas de nuestras opciones más destacadas: \n1. Pastel de Red Velvet ❤️: Un elegante pastel con un vibrante color rojo y un delicado sabor a vainilla, adornado con un suave glaseado de queso crema.\n2. Pastel de Chocolate Trufado 🍫: Un exquisito pastel de chocolate, enriquecido con una suave capa de trufa.",
+        "personalizar pastel": "Por supuesto, estaremos encantados de ofrecerte un pastel totalmente personalizado. 🎂✨ Elige entre una variedad de sabores, decoraciones y diseños para que tu pastel sea único. ¡Solo háznos saber tus preferencias! 🌟",
+        "ofertas grandes pedidos": "En este momento, no contamos con ofertas especiales para pedidos grandes. 🌟 Sin embargo, puedes comunicarte directamente con nuestra chef para explorar opciones personalizadas. Su información está disponible en la parte superior de la página. 📞",
+        "despedida": "Si requieres más información o asistencia adicional, te invitamos a contactar directamente con nuestra supervisora y chef. 📞 Su información de contacto está disponible en la parte superior de la página. Estaremos encantados de ofrecerte la atención y el apoyo que necesites. 🌟 Te deseamos un día maravilloso y esperamos que disfrutes de nuestras exquisiteces. 🍰✨"
+    };
 
-function sendMessage() {
-    const userInput = document.getElementById('user-input').value;
-    if (userInput !== '') {
-        addUserMessage(userInput);
-        handleChatbotResponse(userInput);
-        document.getElementById('user-input').value = '';
+    // Función para mostrar la respuesta según el botón presionado
+    function showResponse(option) {
+        let response = responses[option] || "Lo siento, no entendí tu solicitud. Por favor, selecciona una opción válida.";
+        document.getElementById('cliengo-chat').innerHTML += `<p>${response}</p>`;
     }
-}
-
-function addUserMessage(message) {
-    chatbotMessages.innerHTML += `<div class="user-message">${message}</div>`;
-}
-
-function addBotMessage(message) {
-    chatbotMessages.innerHTML += `<div class="bot-message">${message}</div>`;
-}
-
-function addBotButtons(options) {
-    userOptions.innerHTML = ''; // Limpiar botones previos
-    options.forEach(option => {
-        const button = document.createElement('button');
-        button.className = 'chat-bot-button';
-        button.innerHTML = option.label;
-        button.onclick = function() {
-            addUserMessage(option.label);
-            handleChatbotResponse(option.label);
-        };
-        userOptions.appendChild(button);
-    });
-}
-
-function handleChatbotResponse(input) {
-    if (input.includes('servicio')) {
-        addBotMessage('¿Qué servicio estás buscando?');
-        addBotButtons([
-            { label: 'Servicio básico (1,000 pesos)' },
-            { label: 'Servicio adicional (2,500 pesos)' },
-            { label: 'Servicio premium (3,000 pesos)' }
-        ]);
-    } else if (input.includes('básico')) {
-        addBotMessage('El servicio básico incluye solo la base de datos por 1,000 pesos.');
-        addBotButtons([
-            { label: 'Comprar servicio básico' },
-            { label: 'Volver al menú principal' }
-        ]);
-    } else if (input.includes('adicional')) {
-        addBotMessage('El servicio adicional incluye la base de datos y opciones adicionales por 2,500 pesos.');
-        addBotButtons([
-            { label: 'Comprar servicio adicional' },
-            { label: 'Volver al menú principal' }
-        ]);
-    } else if (input.includes('premium')) {
-        addBotMessage('El servicio premium incluye la base de datos, el sitio web y un enlace de almacenamiento por 3,000 pesos.');
-        addBotButtons([
-            { label: 'Comprar servicio premium' },
-            { label: 'Volver al menú principal' }
-        ]);
-    } else if (input.includes('Comprar')) {
-        addBotMessage('Para proceder con la compra, contáctanos a través de nuestro correo o visita nuestra tienda.');
-    } else {
-        addBotMessage('Lo siento, no entendí eso. ¿Podrías repetirlo o seleccionar una opción?');
-        addBotButtons([
-            { label: 'Servicio básico' },
-            { label: 'Servicio adicional' },
-            { label: 'Servicio premium' }
-        ]);
-    }
-}
+</script>
