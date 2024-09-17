@@ -15,7 +15,188 @@
 
 
    <style>
-       .help-btn {
+       /* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+}
+
+header .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('pasteleria_BROTHERS CREPS/IMAGENES/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+/* Anuncio */
+.anuncio {
+    font-size: 32px;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Productos */
+.productos {
+    padding: 20px;
+}
+
+.productos h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.producto h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.producto p {
+    font-size: 16px;
+    color: #007bff;
+}
+
+/* Contacto - Hacer pedidos */
+.contacto {
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+}
+
+.contacto h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.contacto form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contacto label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contacto input,
+.contacto select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contacto button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contacto button:hover {
+    background-color: #0056b3;
+}
+
+/* Loader */
+.loader-container {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Chatbot */
+.help-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -41,10 +222,11 @@
     border: 1px solid #ccc;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 50%; /* Hacemos la ventana circular */
+    border-radius: 50%; /* Ventana circular */
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    display: none; /* Inicialmente oculto */
 }
 
 .chatbot-header {
@@ -52,7 +234,7 @@
     color: white;
     padding: 10px;
     text-align: center;
-    border-top-left-radius: 50%; /* Ajustamos los bordes */
+    border-top-left-radius: 50%; /* Bordes redondeados */
     border-top-right-radius: 50%;
 }
 
@@ -91,20 +273,7 @@
     background-color: #0056b3;
 }
 
-.message {
-    margin-bottom: 10px;
-}
-
-.message.user {
-    text-align: right;
-    color: blue;
-}
-
-.message.bot {
-    text-align: left;
-    color: green;
-}
-
+/* Chatbot avatar */
 .chatbot-avatar {
     position: fixed;
     bottom: 20px;
@@ -119,6 +288,17 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
     </style>
 
 </head>
