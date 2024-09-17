@@ -2,7 +2,7 @@ const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
 
 // Ruta de la imagen de perfil del bot
-const botProfileImage = "pasteleria_BROTHERS CREPS/estilo css/chatbot.jpeg";
+const botProfileImage = "../estilo css/chatbot.jpeg";
 
 // Respuestas del chatbot
 const responses = {
