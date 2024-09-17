@@ -50,16 +50,16 @@ function getBotResponse(userMessage) {
     let botResponse;
     
     // Comparar mensaje del usuario con las respuestas disponibles
-    if (userMessage.includes("hacer un pedido")) {
-        botResponse = responses["hacer un pedido"];
-    } else if (userMessage.includes("pasteles más recomendados")) {
-        botResponse = responses["pasteles más recomendados"];
-    } else if (userMessage.includes("personalizar pastel")) {
-        botResponse = responses["personalizar pastel"];
-    } else if (userMessage.includes("ofertas grandes pedidos")) {
-        botResponse = responses["ofertas grandes pedidos"];
-    } else if (userMessage.includes("despedida")) {
-        botResponse = responses["despedida"];
+    if (userMessage.includes("1")) {
+        botResponse = responses["1"];
+    } else if (userMessage.includes("2")) {
+        botResponse = responses["2"];
+    } else if (userMessage.includes("3")) {
+        botResponse = responses["3"];
+    } else if (userMessage.includes("4")) {
+        botResponse = responses["4"];
+    } else if (userMessage.includes("5")) {
+        botResponse = responses["5"];
     } else {
         botResponse = responses["hola"]; // Mostrar opciones si no se reconoce el mensaje
     }
