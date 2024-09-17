@@ -627,7 +627,7 @@
 
             <label>¿Qué pastel eligió para la ocasión?</label>
 
-            <select id="cakeSelect" name="1" required onchange="showFlavorField(this.value)">
+            <select id="cakeSelect" name="¿Qué pastel eligió para la ocasión?" required onchange="showFlavorField(this.value)">
 
                 <option value="">Seleccione un pastel</option>
 
@@ -675,15 +675,18 @@
 
             <label>¿Qué día es la entrega?:</label>
 
-            <input type="date" name="2" required>
+            <input type="date" name="¿Qué día es la entrega?" required>
 
             <label>Hora aproximada para recogerlo:</label>
 
-            <input type="time" name="3">
+            <input type="time" name="Hora aproximada para recogerlo:" required>
 
             <label>Número de teléfono para contactarlo/a:</label>
 
-            <input type="tel" name="4" required>
+            <input type="tel" name="Número de teléfono para contactarlo/a:" required>
+             <label>¿Algun extra o personalisacion que desee?:</label>
+
+            <input type="text" name="¿Algun extra o personalisacion que desee?:" required>
 
             <button type="submit">Enviar</button>
 
