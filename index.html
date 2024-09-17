@@ -15,290 +15,415 @@
 
 
    <style>
-       /* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
 
-header {
-    background-color: #333;
-    padding: 20px;
-}
+        .loader-container {
 
-header .logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-}
+            display: none;
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
+            justify-content: center;
 
-header nav ul li {
-    margin-right: 20px;
-}
+            align-items: center;
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
+            position: fixed;
 
-header nav ul li a:hover {
-    text-decoration: underline;
-}
+            top: 0;
 
-/* Hero Section */
-.hero {
-    background-image: url('pasteleria_BROTHERS CREPS/IMAGENES/fondo.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 100px 20px;
-    text-align: center;
-    color: white;
-}
+            left: 0;
 
-.hero h1 {
-    font-size: 48px;
-    margin: 0;
-}
+            width: 100%;
 
-/* Anuncio */
-.anuncio {
-    font-size: 32px;
-    color: #333;
-    margin: 20px 0;
-}
+            height: 100%;
 
-/* Productos */
-.productos {
-    padding: 20px;
-}
+            background-color: rgba(255, 255, 255, 0.8);
 
-.productos h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-}
+            z-index: 1000;
 
-.galeria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
+        }
 
-.producto {
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 250px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.producto img {
-    max-width: 100%;
-    border-radius: 10px;
-}
 
-.producto h3 {
-    font-size: 18px;
-    margin: 10px 0;
-}
+        .loader {
 
-.producto p {
-    font-size: 16px;
-    color: #007bff;
-}
+            display: flex;
 
-/* Contacto - Hacer pedidos */
-.contacto {
-    background-color: #f5f5f5;
-    padding: 40px 20px;
-}
+            flex-direction: column;
 
-.contacto h2 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 20px;
-}
+            align-items: center;
 
-.contacto form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+            border: 4px solid #f3f3f3;
 
-.contacto label {
-    font-size: 16px;
-    margin-bottom: 5px;
-    display: block;
-}
+            border-top: 4px solid #3498db;
 
-.contacto input,
-.contacto select {
+            border-radius: 50%;
+
+            width: 60px;
+
+            height: 60px;
+
+            animation: spin 2s linear infinite;
+
+        }
+
+
+
+        .loader-text {
+
+            margin-top: 10px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            color: black;
+
+        }
+
+
+
+        .loader-percentage {
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: black;
+
+        }
+
+
+
+        @keyframes spin {
+
+            0% { transform: rotate(0deg); }
+
+            100% { transform: rotate(360deg); }
+
+        }
+
+          /* Estilos CSS para hacer que tu página se parezca más a "El Globo" */
+
+     body {
+
+        font-family: Arial, sans-serif;
+
+        margin: 0;
+
+        padding: 0;
+
+        box-sizing: border-box;
+
+        background-color: #f7f7f7; /* Color de fondo general */
+
+        color: #333; /* Color de texto principal */
+
+    }
+
+
+
+    header {
+
+        background-color: #ff6b6b; /* Color de fondo del encabezado */
+
+        color: white;
+
+        padding: 10px 0;
+
+        text-align: center;
+
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera debajo del encabezado */
+
+    }
+
+
+
+    .logo {
+
+        font-size: 1.5em;
+
+        font-weight: bold;
+
+    }
+
+
+
+    nav {
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        max-width: 1200px;
+
+        margin: 0 auto;
+
+        padding: 0 20px;
+
+    }
+
+
+
+    nav ul {
+
+        list-style: none;
+
+        margin: 0;
+
+        padding: 0;
+
+        display: flex;
+
+    }
+
+
+
+    nav ul li {
+
+        margin-left: 20px;
+
+    }
+
+
+
+    nav ul li a {
+
+        color: white;
+
+        text-decoration: none;
+
+        font-size: 1.2em;
+
+    }
+
+
+
+    .hero {
+
+        position: relative;
+
+        background: url('pasteleria_BROTHERS CREPS/estilo css/crepa.jpg') no-repeat center center;
+
+        background-size: cover;
+
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para legibilidad del texto */
+
+        color: white;
+
+        text-align: center;
+
+        padding: 100px 20px;
+
+    }
+
+
+
+    .hero h1 {
+
+        font-size: 3em;
+
+        margin-bottom: 20px;
+
+    }
+
+
+
+    .productos {
+
+        padding: 50px 20px;
+
+        background-color: #f7f7f7;
+
+        text-align: center;
+
+    }
+
+
+
+    .galeria {
+
+        display: flex;
+
+        justify-content: space-around; /* Distribución equitativa de los productos */
+
+        flex-wrap: wrap;
+
+        margin-top: 30px; /* Espacio superior entre la sección anterior y la galería */
+
+    }
+
+
+
+    .producto {
+
+        background: white;
+
+        padding: 20px;
+
+        margin: 15px; /* Espacio entre los productos */
+
+        border-radius: 8px;
+
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        text-align: center;
+
+        width: 300px;
+
+    }
+
+
+
+    .producto img {
+
+        width: 100%;
+
+        height: auto;
+
+        border-radius: 8px; /* Bordes redondeados para las imágenes */
+
+    }
+
+
+
+    .contacto {
+
+        padding: 50px 20px;
+
+        background-color: #ff6b6b; /* Color de fondo de la sección de contacto */
+
+        color: white;
+
+        text-align: center;
+
+    }
+
+
+
+    .contacto h2 {
+
+        margin-bottom: 30px;
+
+    }
+
+
+
+    form {
+
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        text-align: left;
+
+    }
+
+
+
+    form label {
+
+        display: block;
+
+        margin-bottom: 5px;
+
+    }
+
+
+
+    form input,
+
+    form textarea {
+
+        width: 100%;
+
+        padding: 10px;
+
+        margin-bottom: 20px;
+
+        border: none;
+
+        border-radius: 5px;
+
+    }
+
+
+
+    form button {
+
+        background-color: white;
+
+        color: #ff6b6b;
+
+        padding: 10px 20px;
+
+        border: none;
+
+        border-radius: 5px;
+
+        cursor: pointer;
+
+    }
+
+
+
+    footer {
+
+        background-color: #333; /* Color de fondo del pie de página */
+
+        color: white;
+
+        text-align: center;
+
+        padding: 10px 0;
+
+    }
+
+
+
+    footer p {
+
+        margin: 0;
+
+    }
+
+       /* Estilos para adaptar el chatbot en diferentes dispositivos */
+
+#cliengo-chat {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+    max-width: 400px; /* Ajusta el tamaño máximo del chatbot */
+
+    z-index: 1000;
+
 }
 
-.contacto button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+
+/* Para pantallas de dispositivos móviles */
+
+@media (max-width: 768px) {
+
+    #cliengo-chat {
+
+        bottom: 10px;
+
+        right: 10px;
+
+        width: calc(100% - 20px); /* Asegura que el chatbot se ajuste al ancho del dispositivo móvil */
+
+    }
+
 }
 
-.contacto button:hover {
-    background-color: #0056b3;
-}
+         
 
-/* Loader */
-.loader-container {
-    display: none;
-    text-align: center;
-    padding: 20px;
-}
-
-.loader {
-    border: 4px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 4px solid #3498db;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loader-text {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Chatbot */
-.help-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.help-btn:hover {
-    background-color: #0056b3;
-}
-
-.chatbot-container {
-    width: 350px;
-    height: 350px;
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    border: 1px solid #ccc;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 50%; /* Ventana circular */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    display: none; /* Inicialmente oculto */
-}
-
-.chatbot-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-top-left-radius: 50%; /* Bordes redondeados */
-    border-top-right-radius: 50%;
-}
-
-.chatbot-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-}
-
-.chatbot-input {
-    display: flex;
-    padding: 10px;
-    background-color: #f1f1f1;
-}
-
-.chatbot-input input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.chatbot-input button {
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.chatbot-input button:hover {
-    background-color: #0056b3;
-}
-
-/* Chatbot avatar */
-.chatbot-avatar {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
-}
-
-.chatbot-avatar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-footer p {
-    margin: 5px 0;
-}
     </style>
 
 </head>
@@ -346,77 +471,7 @@ footer p {
             <div class="galeria">
 
             <div class="producto">
-    </div>
-    <!--chat bot-->
-                    <!-- Botón flotante estilo Cliengo -->
-    <div id="chatbot-avatar" class="chatbot-avatar">
-        <img src="chatbot-avatar.png" alt="Ayuda">
-    </div>
 
-    <!-- Contenedor del chatbot -->
-    <div id="chatbot-container" class="chatbot-container hidden">
-        <div class="chatbot-header">
-            <h3>Chatbot - Dudas y Recomendaciones</h3>
-        </div>
-        <div id="chatbot-messages" class="chatbot-messages">
-            <!-- Los mensajes se mostrarán aquí -->
-        </div>
-        <div class="chatbot-input">
-            <input type="text" id="user-input" placeholder="Escribe tu duda o recomendación...">
-            <button id="send-btn">Enviar</button>
-        </div>
-    </div>
-
-    <script>
-        // Mostrar u ocultar el chatbot al hacer clic en el avatar
-        document.getElementById('chatbot-avatar').addEventListener('click', function() {
-            const chatbotContainer = document.getElementById('chatbot-container');
-            chatbotContainer.classList.toggle('hidden');
-        });
-
-        // Enviar mensaje
-        document.getElementById('send-btn').addEventListener('click', sendMessage);
-
-        function sendMessage() {
-            const userInput = document.getElementById('user-input').value;
-            if (userInput.trim() !== "") {
-                addMessage('user', userInput);
-                document.getElementById('user-input').value = '';
-
-                // Simular una respuesta del bot
-                setTimeout(() => {
-                    generateBotResponse(userInput);
-                }, 1000);
-            }
-        }
-
-        function addMessage(sender, message) {
-            const messageContainer = document.createElement('div');
-            messageContainer.classList.add('message', sender);
-            messageContainer.textContent = message;
-
-            const chatMessages = document.getElementById('chatbot-messages');
-            chatMessages.appendChild(messageContainer);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function generateBotResponse(userInput) {
-            let botResponse = '';
-
-            // Respuestas automáticas básicas
-            if (userInput.toLowerCase().includes('precio')) {
-                botResponse = 'El precio depende del producto o servicio. ¿Te gustaría conocer más detalles?';
-            } else if (userInput.toLowerCase().includes('recomendación')) {
-                botResponse = 'Te recomiendo el pastel de chocolate trufado. ¡Es nuestro favorito!';
-            } else if (userInput.toLowerCase().includes('gracias')) {
-                botResponse = '¡De nada! Estoy aquí para ayudarte.';
-            } else {
-                botResponse = 'No estoy seguro de la respuesta. ¿Podrías reformular tu pregunta o contactar con soporte?';
-            }
-
-            addMessage('bot', botResponse);
-        }
-    </script>
                 <img src="pasteleria_BROTHERS CREPS/IMAGENES/Tres leches durazno o fresa.jpg" alt="Tres leches durazno o fresa">
 
                 <h3>Tres leches durazno o fresa</h3>
@@ -711,5 +766,8 @@ footer p {
 
 </script>
 
+        <!-- Código de instalación Cliengo para https://blooddas8.github.io/Brothers-creps-online/ --> <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/66d4f58a5f0096775a13f023/66e7b8b485da4d0622b73f9e.js?platform=onboarding_modular'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
+
 </body>
-</html>
+
+            </html>
