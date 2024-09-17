@@ -88,3 +88,35 @@ body {
     border-radius: 50%;
     margin-right: 10px;
 }
+/*pie de pagina*/
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333; /* Color de fondo del pie de página */
+    color: white; /* Color del texto en el pie de página */
+    text-align: center; /* Centra el texto */
+    padding: 20px 0; /* Espaciado superior e inferior */
+    position: relative; /* Posición relativa para permitir ajustes internos */
+    margin-top: 20px; /* Espaciado superior para separar del contenido principal */
+}
+
+footer p {
+    margin: 0; /* Elimina el margen predeterminado de los párrafos */
+    font-size: 14px; /* Tamaño de fuente del texto del pie de página */
+}
+
+footer img {
+    vertical-align: middle; /* Alinea verticalmente la imagen con el texto */
+    margin-left: 10px; /* Espaciado a la izquierda de la imagen */
+    border-radius: 50%; /* Bordes redondeados para las imágenes */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Sombra ligera alrededor de la imagen */
+}
+
+footer a {
+    color: white; /* Color de los enlaces */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subraya los enlaces al pasar el cursor por encima */
+}
