@@ -50,16 +50,10 @@ function getBotResponse(userMessage) {
     let botResponse;
     
     // Comparar mensaje del usuario con las respuestas disponibles
-    if (userMessage.includes("1")) {
-        botResponse = responses["1"];
-    } else if (userMessage.includes("2")) {
-        botResponse = responses["2"];
-    } else if (userMessage.includes("3")) {
-        botResponse = responses["3"];
-    } else if (userMessage.includes("4")) {
-        botResponse = responses["4"];
-    } else if (userMessage.includes("5")) {
-        botResponse = responses["5"];
+    const cleanedMessage = userMessage.replace(/[^0-9]/g, ''); // Limpiar mensaje para obtener solo números
+    
+    if (responses[cleanedMessage]) {
+        botResponse = responses[cleanedMessage];
     } else {
         botResponse = responses["hola"]; // Mostrar opciones si no se reconoce el mensaje
     }
