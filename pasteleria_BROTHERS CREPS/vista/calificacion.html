@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificación y Comentarios</title>
+    <link rel="stylesheet" href="../estilo css/stylecomentarios.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Califica el servicio y deja tu comentario:</h1>
+        
+        <!-- Selección de pastel -->
+        <label for="product-select">Selecciona un pastel:</label>
+        <select id="product-select">
+            <option value="">Seleccione un pastel</option>
+            <option value="Tres leches durazno o fresa">Tres leches durazno o fresa</option>
+            <option value="Durazno cajeta">Durazno cajeta</option>
+            <option value="Tres leches durazno nuez">Tres leches durazno nuez</option>
+            <option value="Tres leches fresa nuez">Tres leches fresa nuez</option>
+            <option value="Pastel sin leches, pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora">Pastel sin leches pan de vainilla o chocolate, Queso Philadelphia mermelada de zarzamora</option>
+            <option value="Red velvet relleno con queso Philadelphia y mermelada de zarzamora">Red velvet relleno con queso Philadelphia y mermelada de zarzamora</option>
+            <option value="Red velvet relleno con queso Philadelphia y cerezas">Red velvet relleno con queso Philadelphia y cerezas</option>
+            <option value="Pastel moka relleno de durazno">Pastel moka relleno de durazno</option>
+            <option value="Pastel chocolate tipo gansito">Pastel chocolate tipo gansito</option>
+            <option value="Pastel chocolate mazapán">Pastel chocolate mazapán</option>
+            <option value="Pastel chocolate sniker">Pastel chocolate sniker</option>
+            <option value="Chocoflan">Chocoflan</option>
+            <option value="Flan napolitano">Flan napolitano</option>
+            <option value="Pastel, pan de vainilla con pan de chocolate">Pastel, pan de vainilla con pan de chocolate</option>
+        </select><br><br>
+
+        <!-- Calificación -->
+        <div class="stars" id="rating-stars">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+        <p id="rating-value"></p>
+
+        <!-- Nombre y Comentarios -->
+        <input type="text" id="name-box" placeholder="Tu nombre..." required><br>
+        <textarea id="comment-box" placeholder="Escribe tu comentario aquí..." rows="4" cols="50" required></textarea><br>
+        <input type="text" id="nip-box" placeholder="Introduce tu NIP (si deseas eliminar comentarios)" style="display:none;"><br>
+        <button id="submit-comment">Enviar comentario</button>
+        <h2>Comentarios:</h2>
+        <div id="comments-section">
+            <!-- Comentarios serán mostrados aquí -->
+        </div>
+    </div>
+    <script src="rating.js"></script>
+</body>
+</html>
